@@ -26,7 +26,7 @@ const refreshTokenSchema = new mongoose.Schema({
 })
 
 // models with declared Schema
-const Course = new mongoose.model("Place", courseSchema)
+const Course = new mongoose.model("Course", courseSchema)
 const RefreshToken = new mongoose.model("RefreshToken", refreshTokenSchema)
 
 

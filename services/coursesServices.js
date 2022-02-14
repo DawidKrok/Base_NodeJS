@@ -33,6 +33,7 @@ getCourse = async (req, res) => {
 /** @Adds : new Course to database */
 addCourse = async (req, res) => {
     try {
+        console.log(req.body)
         if(!req.body.name || !req.body.type || !req.body.img_url || !req.body.price || !req.body.length_in_hours)  
             return res.sendStatus(400)
 

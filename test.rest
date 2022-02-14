@@ -2,7 +2,7 @@
 
 ###
 #   =========================
-#   PLACES
+#   Courses
 #   =========================
 ###
 
@@ -15,7 +15,11 @@ Content-Type: application/json
     "description": "Naucz się malować w 30 minut",
     "img_url": "https://www.pictureframesexpress.co.uk/blog/wp-content/uploads/2020/05/7-Tips-to-Finding-Art-Inspiration-Header-1024x649.jpg",
     "price": 13.99,
-    "length_in_hours": 0.5,
+    "length_in_hours": 0.5
 }
+
+###
+
+POST {{host}}/get_all_courses
 
 ###

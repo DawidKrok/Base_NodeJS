@@ -15,12 +15,12 @@ const tokenServices = require('../services/tokenServices')
  * @takes_place_on : Date on which course takes place 
  * @img_link : String with link to corresponding img 
  * @description : String with description of course */
- router.post("/add_course", tokenServices.authenticateToken, coursesServices.addCourse)
+router.post("/add_course",  coursesServices.addCourse)
  
  /** Returns all Courses documents from database
   * req.body:
   * @city : name of corresponding city */
- router.post("/get_all_courses", coursesServices.getAllCourses)
+router.post("/get_all_courses", coursesServices.getAllCourses)
  
  /** Returns Course with given id 
   * req.body:
@@ -31,7 +31,7 @@ router.post("/get_course", coursesServices.getCourse)
  /** Deletes Course with given id 
   * req.body:
   * @id : id of course to delete */
- router.post("/delete_course", tokenServices.authenticateToken, coursesServices.deleteCourse)
+router.post("/delete_course", tokenServices.authenticateToken, coursesServices.deleteCourse)
 
 
 module.exports = router

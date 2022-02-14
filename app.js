@@ -8,15 +8,12 @@ app.use(mainRouter)
 app.use(dataRouter)
 app.use(adminRouter)
 
-
-app.set('trust proxy', 1)
-app.get('/ip', (request, response) => response.send(request.ip))
-
 // When nothing else handled request
 app.use((req, res) => {
     res.status(404).render("errors/404", {title: "Status 404"})
 })
 
 app.use((err, req, res, next) => {
+    console.log(err)
     res.status(err.status || 500).render('errors/500', {})
 })
