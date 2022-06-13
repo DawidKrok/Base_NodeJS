@@ -17,9 +17,7 @@ const tokenServices = require('../services/tokenServices')
  * @description : String with description of course */
 router.post("/add_course",  coursesServices.addCourse)
  
- /** Returns all Courses documents from database
-  * req.body:
-  * @city : name of corresponding city */
+ /** Returns all Courses documents from database */
 router.post("/get_all_courses", coursesServices.getAllCourses)
  
  /** Returns Course with given id 

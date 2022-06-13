@@ -1,6 +1,7 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 
-const url = "mongodb://mo12854_Krokemy:Asfalt1756@mongo.ct8.pl:27017/mo12854_Krokemy"
+const url = process.env.MONGO_URL
 
 mongoose.connect(url, {
     // some settings for better mongoose performance
