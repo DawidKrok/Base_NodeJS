@@ -8,7 +8,7 @@ It's also secured against:
 - NoSQL Injections
 
 ## Important
-.env file must be added
+`.env` file must be added
 ```
 ACCESS_TOKEN_SECRET = <TOKEN_STR>
 REFRESH_TOKEN_SECRET = <TOKEN_STR>
