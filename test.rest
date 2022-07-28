@@ -24,3 +24,34 @@ POST {{host}}/get_all_courses
 
 ###
 
+POST {{host}}/delete_course
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTkwMDA3NDEsImRhdGEiOnsiX2lkIjoiNjJlMjQ3NTI1YWZhNTU4M2ViYWI1Mzk3IiwiZW1haWwiOiJkYXdpZEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRjNkhRcGtQdkNFU3prUmh5WHJMeTVPdFVaU2tzSW1GTkRCSk5kc2prajBWOHFTcE5jS094SyIsImlhdCI6MTY1ODk5OTY4MX0sImlhdCI6MTY1OTAwMDE0MX0.vQZibrIDi8dVAIagbsVyrhPJLzLhKrN23A6zjB41b4Q
+Content-Type: application/json
+
+{
+    "id": "62e2556be5d468da57afa02b"
+}
+
+###
+
+POST {{host}}/login
+Content-Type: application/json
+
+{
+    "email": "dawid@gmail.com",
+    "password": "12345678"
+}
+
+###
+
+POST {{host}}/register
+Content-Type: application/json
+
+{
+    "email": "dawid@gmail.com",
+    "password": "12345678"
+}
+
+###
+
+POST {{host}}/logout

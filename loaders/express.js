@@ -43,7 +43,7 @@ app.use(mongoSanitize({
 }))
 
 
-/** &&&&&&&&&&&&&&& | AVAIlABILITY | &&&&&&&&&&&&&&&  */
+/** &&&&&&&&&&&&&&& | AVAILABILITY | &&&&&&&&&&&&&&&  */
 // Set partials directory and use hbs to send html pages to client
 hbs.registerPartials("views/partials")
 app.set("view engine", "hbs")

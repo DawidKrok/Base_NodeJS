@@ -1,0 +1,19 @@
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/utils.js" defer></script>
+<script src="js/register.js" defer></script>
+
+<form method="POST">
+    <div class="email">
+        <input type="text" name="email" placeholder="Email">
+        <p class="email-err" style="visibility: hidden;">*Invalid Email</p>
+    </div>
+    <div class="pass">
+        <input type="password" name="password" placeholder="Password">
+        <p class="pass-err" style="visibility: hidden;">*Password must be at least 7 characters long</p>
+    </div>
+    <div class="repass">
+        <input type="password" name="repeat-password" placeholder="Repeat password">
+        <p class="repass-err" style="visibility: hidden;">*Passwords don't match</p>
+    </div>
+    <button>Submit</button>
+</form>

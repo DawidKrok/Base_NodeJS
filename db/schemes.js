@@ -25,12 +25,28 @@ const refreshTokenSchema = new mongoose.Schema({
     versionKey: false
 })
 
+const adminSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        require: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        require: true,
+    },
+}, {
+    versionKey: false
+})
+
 // models with declared Schema
 const Course = new mongoose.model("Course", courseSchema)
+const Admin = new mongoose.model("Admin", adminSchema)
 const RefreshToken = new mongoose.model("RefreshToken", refreshTokenSchema)
 
 
 module.exports = {
+    Admin,
     Course,
     RefreshToken,
 } 

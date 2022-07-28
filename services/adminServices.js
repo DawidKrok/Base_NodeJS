@@ -15,11 +15,6 @@ authenticateAdmin = async (req, res, next) => {
         // Check if admin was found
         if (!admin) return res.status(404).send()
 
-        // Only if admin corresponds to subdomain they're logging into (or if they're AllMight and have access to everything) they may pass futher
-        const subdomain = req.get("host").split(".")[0]
-        if(admin.city_name != subdomain && !admin.all_might)
-            return res.sendStatus(401)
-
         // Check if password matches
         if (!await bcryptjs.compare(req.body.password, admin.password))
             return res.status(401).send()
@@ -35,6 +30,10 @@ authenticateAdmin = async (req, res, next) => {
 
 login = async (req, res) => {
     try {
+        // check if admin is already logged
+        if(await tokenServices.checkRefreshToken(req.cookies.refreshToken))   
+            return res.sendStatus(406)
+
         // Return token to store and use for further access
         const accessToken = tokenServices.generateAccessToken(req.admin)
 
@@ -60,8 +59,9 @@ login = async (req, res) => {
 
 // check data and add new admin to database with given email and password
 register = async (req, res, next) => {
+    console.log("R")
     try {
-        if (!req.body.email || !req.body.password || !req.body.city_name) return res.sendStatus(401)
+        if (!req.body.email || !req.body.password) return res.sendStatus(401)
         // Check if send data is valid
         if (!validateRegistration(req.body)) return res.sendStatus(403)
 
@@ -77,8 +77,6 @@ register = async (req, res, next) => {
         const newAdmin = new Admin({
             email: req.body.email,
             password: hashedPass,
-            city_name: req.body.city_name,
-            city_data: req.body.city_data || ""
         })
         await newAdmin.save()
 

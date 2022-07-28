@@ -50,7 +50,7 @@ refreshAccessToken = async (req, res) => {
     }
 }
 
-/** Checks if Refresh Token is @valid . Used to determine if user is logged or not */
+/** Checks if Refresh Token is @valid . Used to determine if user is logged or not (probably should change names of these functions) */
 checkRefreshToken = async refreshToken => {
     try {
         if(!refreshToken)  return false
@@ -66,7 +66,7 @@ checkRefreshToken = async refreshToken => {
     }
 }
 
-/** Handles checking if user is @logged and redirects them if they're not */
+/** Handles checking if user is @logged and redirects them if they're not (probably should change names of these functions)*/
 checkLogged = async (req, res, next) => {
     if(! await checkRefreshToken(req.cookies.refreshToken))
         return res.redirect(307, "/login")
@@ -77,17 +77,17 @@ checkLogged = async (req, res, next) => {
 /** @Deletes user's Refresh token from database and their cookies */
 deleteToken = async (req, res) => {
     try {
+        // Delete Refresh Token from database
+        RefreshToken.deleteOne({token: req.cookies.refreshToken}, err => {
+            if(err) return res.sendStatus(403)
+        })
+       
         // Deletes user's Refresh Token cookie
         res.cookie("refreshToken", "", {
             httpOnly: true,
             maxAge: -1
         })
 
-        // Delete Refresh Token from database
-        RefreshToken.deleteOne({token: req.cookies.refreshToken}, err => {
-            if(err) return res.sendStatus(403)
-        })
-       
         res.sendStatus(202)
     } catch(err) {
         res.status(500).send()
