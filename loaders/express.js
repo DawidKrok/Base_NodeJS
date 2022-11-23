@@ -59,5 +59,6 @@ app.use(cookieParser())
 app.use(express.static("public"))
 
 app.listen(port)
+console.log(`\x1b[42mServer is running on port ${port}\x1b[0m`)
 
 module.exports = app
