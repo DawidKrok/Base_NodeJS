@@ -37,6 +37,10 @@ $("form").on("submit", e => {
             case 401:
                 $(".pass-err").css("visibility", "visible")
                 break 
+            // user already logged
+            case 406:
+                window.location.replace("/admin")
+                break;
         }
     })
 })

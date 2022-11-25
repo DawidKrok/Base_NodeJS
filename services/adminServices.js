@@ -59,7 +59,6 @@ login = async (req, res) => {
 
 // check data and add new admin to database with given email and password
 register = async (req, res, next) => {
-    console.log("R")
     try {
         if (!req.body.email || !req.body.password) return res.sendStatus(401)
         // Check if send data is valid
@@ -80,11 +79,11 @@ register = async (req, res, next) => {
         })
         await newAdmin.save()
 
+        console.log(`Registered new admin: ${req.body.email}`)
+
         //admin for login
         req.admin = newAdmin.toJSON()
-
         next()
-
     } catch (err) {
         res.status(500).send()
         console.log(err)
