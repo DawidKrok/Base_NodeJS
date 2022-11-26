@@ -15,6 +15,9 @@ router.get("/register", (req, res) => {
 })
 
 router.get("/admin", tokenServices.checkLogged, (req, res) => {
+    if(!req.logged)
+        return res.redirect("/login")
+
     res.render("admin")
 })
 
